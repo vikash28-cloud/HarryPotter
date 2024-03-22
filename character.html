@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harry Potter Character</title>
+    <style> 
+    *{
+        margin: 0px;
+        padding: 0px;
+
+    }
+    body{
+        font-family: sans-serif;
+        background-color:rgb(241, 205, 162);
+    }
+    .heading{
+        display: inline-block;
+        margin: 10px ;
+        padding: 4px;
+        
+        color:rgb(111, 76, 33);
+    }
+
+    .container{
+        display: flex;
+        width: 90vw;
+        height: 85vh;
+       
+        margin: auto;
+        gap: 30px;
+        align-items: center;
+
+    }
+    .image{
+        width: 90%;
+        height: 100%;
+        object-fit:contain;
+    }
+    .left{
+        text-align: center;
+        width:40%;
+        height: 100%;
+        
+    }
+    .right{
+        display: flex;
+    
+        width: 60%;
+        height: 100%;
+       padding: 10px;
+    }
+    tr{
+        
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-around;
+        border: 1px solid black;
+        padding: 20px;
+    }
+    table{
+        width: 100%;
+        margin: auto;
+    }
+    tr{
+        background-color: rgb(255, 152, 25);
+        color: black;
+        font: bold;
+        font-size: 20px;
+    }
+    th{
+        border-radius: 10px;
+        
+    }
+    </style>
+</head>
+
+<body>
+    
+    <div class="heading">
+        <h1></h1>
+    </div>
+
+    <div class="container">
+        <div class="left">
+            <img class="image" src="" alt="">
+        </div>
+    
+        <div class="right">
+            <!-- <h3>actor name</h3>
+            <p>alive</p>
+            <h5>house</h5>
+            <h5>eyecolor</h5>
+            <h5>dob</h5> -->
+
+            <table >
+                
+                <tr>
+                  <th>Actor Name</th>
+                  <td id="ActorName">Jack Russell</td>
+                 
+                </tr>
+                <tr>
+                  <th>Alive</th>
+                    <td id="alive">Jack Russell</td>
+                </tr>
+                <tr>
+                  <th>house</th>
+                    <td id="house">Jack Russell</td>
+                </tr>
+                <tr>
+                  <th>dob</th>
+                    <td id="dob">Jack Russell</td>
+                </tr>
+                <tr>
+                  <th>ancestry</th>
+                    <td id="ancestry">Jack Russell</td>
+                </tr>
+                <tr>
+                  <th>howgwarts staff</th>
+                    <td id="staff">Jack Russell</td>
+                </tr>
+                <tr>
+                  <th>howgwarts student</th>
+                    <td id="student">Jack Russell</td>
+                </tr>
+                
+               
+              </table>
+              
+        </div>
+    
+
+    </div>
+   
+
+
+    <script>
+        //Function to extract parameter value from URL
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            let regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            let results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Get the URL parameter named 'id'
+        let idParam = getUrlParameter('id');
+
+        // Log the 'id' parameter value
+        console.log('ID parameter value:', idParam);
+
+        async function api_data() {
+            let api = await fetch("https://hp-api.onrender.com/api/characters");
+            let data = await api.json();
+
+            let characterData;
+            for(const item of data){
+                if(idParam==item.id){
+                    
+                    characterData=item;
+                    break;
+                }
+            }
+            showCharacterData(characterData);
+            
+        }
+        api_data();
+
+
+        function showCharacterData(data){
+            console.log(data)
+            document.querySelector("h1").innerHTML = data.name;
+            document.querySelector("#alive").innerHTML = data.alive;
+            document.querySelector("#ActorName").innerHTML = data.actor;
+            document.querySelector("#dob").innerHTML = data.dateOfBirth;
+            document.querySelector("#house").innerHTML = data.house;
+            document.querySelector("#ancestry").innerHTML = data.ancestry;
+            document.querySelector("#student").innerHTML = data.hogwartsStudent;
+            document.querySelector("#staff").innerHTML = data.hogwartsStaff;
+            document.querySelector(".image").setAttribute("src", data.image);    
+
+        }
+
+    </script>
+
+</body>
+
+</html>

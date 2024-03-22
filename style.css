@@ -1,0 +1,125 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color:rgb(241, 205, 162);
+}
+
+header{
+    width: 90vw;
+    
+    margin: 20px auto;
+    text-align: center;
+    background-color: rgb(219, 134, 30);
+    padding: 10px;
+}
+header:hover{
+    box-shadow: 0px 12px 28px 0px rgba(140, 149, 159, 0.3);
+}
+
+.search{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin: 40px auto;
+    gap: 20px;
+    border: 1px solid red;
+    background-color: white;
+    border-radius: 20px;
+    width: 80%;
+    padding: 10px;
+}
+
+form{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.search input{
+    border: none;
+    background-color: black;
+    opacity: 0.8;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    width: 80%;
+    height: 50px;
+}
+.search button{
+    border: none;
+    font-size: 20px;
+    padding: 10px 20px;
+
+}
+.search h2{
+    text-transform: uppercase;
+    font-size: small;
+    color:rgb(255, 152, 25);
+}
+button:hover{
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12);
+}
+
+.AllImages h1{
+   text-align: center;
+    text-decoration: overline;
+    color: white;
+}
+
+.container{
+    padding: 20px;
+    min-width: 80%;
+    height: 90vh;
+    margin: 10px auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.card{
+    
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+.card .info{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 4px;
+    justify-content: space-around;
+    
+
+}
+.card img{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+span{
+  display: inline-block;
+    border: 1px solid black;
+    padding: 2px 5px;
+    border-radius: 10px;
+    margin:10px;
+}
+.id{
+    color: gray;
+}
+
